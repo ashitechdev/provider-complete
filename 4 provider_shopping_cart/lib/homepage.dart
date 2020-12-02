@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: List.generate(6, (index) {
           return GestureDetector(
               onTap: () {
-                cartProvider.addToCart(index);
+                Provider.of<CartModel>(context, listen: false).addToCart(index);
               },
               child: Container(
                 alignment: Alignment.bottomRight,

@@ -9,14 +9,11 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<CartModel>(
+    return MaterialApp(
+      home: ChangeNotifierProvider<CartModel>(
         create: (_) => CartModel(),
-        child: MaterialApp(
-          title: 'Flutter Shopping Cart Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: MyHomePage(title: 'Gift Shop'),
-        ));
+        child: MyHomePage(title: 'Gift Shop'),
+      ),
+    );
   }
 }

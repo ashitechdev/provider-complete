@@ -58,14 +58,26 @@ class Screen1 extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            FlatButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return Screen2();
-                  }));
-                },
-                child: Text("Go to Screen 2"))
+            Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  border: Border.all(
+                      color: Provider.of<ThemeModel>(context, listen: false)
+                                  .currentTheme ==
+                              ThemeData.light()
+                          ? Colors.redAccent
+                          : Colors.cyan,
+                      style: BorderStyle.solid)),
+              child: FlatButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return Screen2();
+                    }));
+                  },
+                  child: Text("Go to Screen 2")),
+            )
           ],
         ),
       ),

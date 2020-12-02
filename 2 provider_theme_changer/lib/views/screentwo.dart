@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_theme_changer/Model/thememodel.dart';
@@ -58,11 +59,23 @@ class Screen2 extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            FlatButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text("Back to Screen 1"))
+            Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  border: Border.all(
+                      color: Provider.of<ThemeModel>(context, listen: false)
+                                  .currentTheme ==
+                              ThemeData.light()
+                          ? Colors.redAccent
+                          : Colors.cyan,
+                      style: BorderStyle.solid)),
+              child: FlatButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Back to Screen 1")),
+            )
           ],
         ),
       ),
